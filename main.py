@@ -150,26 +150,26 @@ rightAttackEnemy = []
 backAttackEnemy = []
 
 for i in range(1, 5):
-	frontAttackEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'attack_front (' + str(i) + ').png')), (100, 100)))
+	frontAttackEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'attack front (' + str(i) + ').png')), (100, 100)))
 for i in range(1, 5):
-	leftAttackEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'attack_left (' + str(i) + ').png')), (100, 100)))
+	leftAttackEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'attack left (' + str(i) + ').png')), (100, 100)))
 for i in range(1, 5):
-	rightAttackEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'attack_right (' + str(i) + ').png')), (100, 100)))
+	rightAttackEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'attack right (' + str(i) + ').png')), (100, 100)))
 for i in range(1, 5):
-	backAttackEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'attack_back (' + str(i) + ').png')), (100, 100)))
+	backAttackEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'attack back (' + str(i) + ').png')), (100, 100)))
 #enemy load run
 frontRunEnemy = []
 leftRunEnemy = []
 rightRunEnemy = []
 backRunEnemy = []
 for i in range(1, 5):
-	frontRunEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'run_front (' + str(i) + ').png')), (100, 100)))
+	frontRunEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'run front (' + str(i) + ').png')), (100, 100)))
 for i in range(1, 5):
-	leftRunEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'run_left (' + str(i) + ').png')), (100, 100)))
+	leftRunEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'run left (' + str(i) + ').png')), (100, 100)))
 for i in range(1, 5):
-	rightRunEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'run_right (' + str(i) + ').png')), (100, 100)))
+	rightRunEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'run right (' + str(i) + ').png')), (100, 100)))
 for i in range(1, 5):
-	backRunEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'run_back (' + str(i) + ').png')), (100, 100)))
+	backRunEnemy.append(pygame.transform.scale(pygame.image.load(os.path.join('enemy_chars', 'run back (' + str(i) + ').png')), (100, 100)))
 
 class enemy:#enemy class
 	def __init__(self):#on initiation
@@ -302,9 +302,9 @@ print(statue.get_rect().size)
 background = pygame.image.load('dungeon.png').convert_alpha()#loads dungeon
 introscene = []
 for i in range(1, 8):
-	introscene.append(pygame.image.load(os.path.join('cut scene', 'loop 1 (' + str(i) + ').gif')))
+	introscene.append(pygame.image.load(os.path.join('cut_scene', 'loop 1 (' + str(i) + ').gif')))
 for i in range(1, 8):
-	introscene.append(pygame.image.load(os.path.join('cut scene', 'loop 2 (' + str(i) + ').gif')))
+	introscene.append(pygame.image.load(os.path.join('cut_scene', 'loop 2 (' + str(i) + ').gif')))
 
 for i in range(1, 8):
 	introscene.append(pygame.image.load(os.path.join('cut_scene', 'loop 3 (' + str(i) + ').gif')))
@@ -312,7 +312,7 @@ for i in range(1, 8):
 for i in range(1, 36):
 	introscene.append(pygame.image.load(os.path.join('cut_scene', 'menu loop (' + str(i) + ').gif')))
 
-startButton = [pygame.image.load(os.path.join('gui_buttons', 'Start.png')), pygame.image.load(os.path.join('gui buttons', 'StartPressed.png'))]
+startButton = [pygame.image.load(os.path.join('gui_buttons', 'Start.png')), pygame.image.load(os.path.join('gui_buttons', 'StartPressed.png'))]
 infoButton = pygame.image.load(os.path.join('gui_buttons', 'Icon_Help.png'))
 okayButton = pygame.image.load(os.path.join('gui_buttons', 'Okay.png'))
 
@@ -628,8 +628,11 @@ while playing:
 	if villainState ==  IDLE and frame % random.randrange(100, attackVariable) == 0:#attacks randomly (though more frequently if attackVariable is lower)
 		villainState = ATTACK
 
-	if villainState == ATTACK and len(activeProjectiles) == 0 and frame % 2 == 0:
-		activeProjectiles.append(projectile(charX, charY))
+	if villainState == ATTACK and frame % 2 == 0:
+		if villainHealth > 600 and len(activeProjectiles) == 0:
+			activeProjectiles.append(projectile(charX, charY))
+		elif villainHealth <= 599 and len(activeProjectles) <= 1:
+			activeProjectiles.append(projectile(charX, charY))
 
 	if frame % 150 == 0:#spawns a new enempy evr 150 frames
 		enemies.append(enemy())
