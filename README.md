@@ -7,6 +7,7 @@ game for my culminating (ISC201). it's supposed to be zelda themed.
 2. extract
 3. place contents into a folder if they're not already
 4. run main.py
+*note: you need to install pygame before running.*
 
 ### playing
 click the '?' on the intro scene for instructions.
