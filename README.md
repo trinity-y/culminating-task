@@ -18,6 +18,3 @@ harm the enemy (a small amount), and gain money.
 
 you can use money to upgrade your sword (and hopefully soon to purchase
 health potions and possibly projectiles).
-
-### thanks for downloading!
-if you find any bugs please let me know.
