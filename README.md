@@ -18,3 +18,8 @@ harm the enemy (a small amount), and gain money.
 
 you can use money to upgrade your sword (and hopefully soon to purchase
 health potions and possibly projectiles).
+
+### technical aspects
+- use classes to control fireballs and mini enemies
+       - used __init__ and update functions and mutable lists of objects  to keep track of and control instances
+- pygame/use of libraries
